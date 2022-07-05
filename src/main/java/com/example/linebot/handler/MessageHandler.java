@@ -41,16 +41,18 @@ public class MessageHandler {
 		switch (text){
 			case "你好":
 				message.put("text", "哈囉");
+				messages.put(message);
 				break;
 			default:
 				message.put("text", "我還看不懂");
+				messages.put(message);
+
 				break;
 		}
-
-		messages.put(message);
 		body.put("replyToken", replyToken);
 		body.put("messages", messages);
 		sendLinePlatform(body);
+
 	}
 
 	private void sticker(String replyToken, String packageId, String stickerId) {
